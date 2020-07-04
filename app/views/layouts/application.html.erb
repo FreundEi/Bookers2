@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+<!-- header -->
+<header class="navbar navbar-fixed-top navbar-inverse" style="color: white;">
+<div class="container" style="padding: 0, 20;">
+  <nav class="nav navbar-nav navbar-left"><h4>Bookers</h4></nav>
+  <nav class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav mr-auto">
+      <% if user_signed_in? %>
+<!-- ログインしている場合 -->
+      <li><a class="glyphicon glyphicon-home" href="/users/show"> Home</a></li>
+      <li><a class="glyphicon glyphicon-user" href="/users/index"> Users</a></li>
+      <li><a class="glyphicon glyphicon-book" href="/books"> Books</a></li>
+      <li><a class="glyphicon glyphicon-log-out" rel="nofollow" data-method="delete" href="/users/sign_out"> logout</a></li>
+      <% else %>
+<!-- ログインしていない場合 -->
+      <li><a class="glyphicon glyphicon-home" href="/"> Home</a></li>
+      <li><a class="glyphicon glyphicon-link" href="/home/about"> About</a></li>
+      <li><a class="glyphicon glyphicon-edit" href="/users/sign_up"> sign up</a></li>
+      <li><a class="glyphicon glyphicon-log-in" href="/users/sign_in"> login</a></li>
+      <% end %>
+    </ul>
+  </nav>
+</div>
+</header>
+<!-- main -->
+  <div class="contianer" style="margin-top: 60px;">
+    <div class="row">
+    <%= yield %>
+    </div>
+  </div>
+<!-- footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3 col-xs-offset-9">CopyRight Infratop.inc</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

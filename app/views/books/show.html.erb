@@ -1,0 +1,15 @@
+<div class="container">
+	<%= notice %>
+	<div class="row">
+		<%= render "books/sidebar" %>
+		<h1>Book detail</h1>
+		<table>
+			<tbody>
+				<th><%= @book.title %></th>
+				<th><%= @book.body %></th>
+				<th><%= link_to "Edit", edit_book_path(@book.id) %></th>
+			 	<th><%= link_to "Destroy", book_path, method: :delete, data: {confirm: "本当に消しますか？"} %></th>
+		    </tbody>
+		</table>
+    </div>
+</div>
