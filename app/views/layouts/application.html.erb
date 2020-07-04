@@ -18,16 +18,28 @@
     <ul class="nav navbar-nav mr-auto">
       <% if user_signed_in? %>
 <!-- ログインしている場合 -->
-      <li><a class="glyphicon glyphicon-home" href="/users/show"> Home</a></li>
-      <li><a class="glyphicon glyphicon-user" href="/users/index"> Users</a></li>
-      <li><a class="glyphicon glyphicon-book" href="/books"> Books</a></li>
-      <li><a class="glyphicon glyphicon-log-out" rel="nofollow" data-method="delete" href="/users/sign_out"> logout</a></li>
+        <li>
+          <!-- <a class="glyphicon glyphicon-home" href="/users/show"> Home</a> -->
+          <%= link_to "Home", user_path(current_user.id), class: "glyphicon glyphicon-home" %>
+        </li>
+        <li>
+          <!-- <a class="glyphicon glyphicon-user" href="/users/index"> Users</a> -->
+          <%= link_to "Users", users_path, class: "glyphicon glyphicon-user" %>
+        </li>
+        <li>
+          <!-- <a class="glyphicon glyphicon-book" href="/books"> Books</a> -->
+          <%= link_to "Books", books_path, class: "glyphicon glyphicon-book" %>
+        </li>
+        <li>
+          <!-- <a class="glyphicon glyphicon-log-out" rel="nofollow" data-method="delete" href="/users/sign_out"> logout</a> -->
+          <%= link_to "logout", destroy_user_session_path, class: "glyphicon glyphicon-log-out", method: :delete %>
+        </li>
       <% else %>
 <!-- ログインしていない場合 -->
-      <li><a class="glyphicon glyphicon-home" href="/"> Home</a></li>
-      <li><a class="glyphicon glyphicon-link" href="/home/about"> About</a></li>
-      <li><a class="glyphicon glyphicon-edit" href="/users/sign_up"> sign up</a></li>
-      <li><a class="glyphicon glyphicon-log-in" href="/users/sign_in"> login</a></li>
+        <li><a class="glyphicon glyphicon-home" href="/"> Home</a></li>
+        <li><a class="glyphicon glyphicon-link" href="/home/about"> About</a></li>
+        <li><a class="glyphicon glyphicon-edit" href="/users/sign_up"> sign up</a></li>
+        <li><a class="glyphicon glyphicon-log-in" href="/users/sign_in"> login</a></li>
       <% end %>
     </ul>
   </nav>
