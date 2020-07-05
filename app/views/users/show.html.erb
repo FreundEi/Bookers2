@@ -11,9 +11,10 @@
 						<th>Opinion</th>
 					</tr>
 				</thead>
-	            <% @books.each do |book| %>
 	            <tbody>
-			        <td><%= book.title %></td>
+	            <% @books.each do |book| %>
+		        	<td><%= image_tag attachment_url(book.user, :profile_image, :fill, 50, 50, format: "jpg", fallback: "no_image.png"), size:'50x50'%></td>
+			        <td><%= link_to book.title, book_path(book.id) %></td>
 			        <td><%= book.body %></td>
                 </tbody>
                 <% end %>

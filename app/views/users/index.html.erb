@@ -10,13 +10,15 @@
 			            <th>name</th>
 		            </tr>
 	            </thead>
-	            <% @users.each do |user| %>
-		            <tbody>
-				        <td><%= image_tag attachment_url(user, :profile_image, :fill, 50, 50, format: "jpg", fallback: "no_image.png"), size:'50x50'%></td>
-				        <td><%= user.name %></td>
-				        <td><%= link_to "show", "/users/#{user.id}" %></td>
-	                </tbody>
-                <% end %>
+	            <tbody>
+	            	<% @users.each do |user| %>
+		            	<tr>
+					        <td><%= image_tag attachment_url(user, :profile_image, :fill, 50, 50, format: "jpg", fallback: "no_image.png"), size:'50x50'%></td>
+					        <td><%= user.name %></td>
+					        <td><%= link_to "show", "/users/#{user.id}" %></td>
+				    	</tr>
+                	<% end %>
+            	</tbody>
             </table>
 		</div>
 	</div>
