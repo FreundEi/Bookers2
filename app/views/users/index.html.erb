@@ -15,7 +15,7 @@
 		            	<tr>
 					        <td><%= image_tag attachment_url(user, :profile_image, :fill, 50, 50, format: "jpg", fallback: "no_image.png"), size:'50x50'%></td>
 					        <td><%= user.name %></td>
-					        <td><%= link_to "show", "/users/#{user.id}" %></td>
+					        <td><%= link_to "Show", "/users/#{user.id}" %></td>
 				    	</tr>
                 	<% end %>
             	</tbody>
