@@ -1,5 +1,18 @@
 <div class="container">
+
   <h2>User info</h2>
+
+  <% if @user.errors.any? %>
+    <div style="color: red;">
+      <ul>
+        <h3><%= pluralize(@user.errors.count, "error") %> prohibited this obj from being saved:</h3>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= form_for(@user) do |f| %>
     <div class="field">
       <%= f.label :name %>
