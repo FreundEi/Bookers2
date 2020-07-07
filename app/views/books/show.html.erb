@@ -13,7 +13,7 @@
 			    			<br><%= @book.user.name %>
 	    				<% end %>
     				</th>
-					<th><%= @book.title %></th>
+					<th><%= link_to @book.title, user_path(@book.user) %></th>
 					<th><%= @book.body %></th>
 					<% if current_user.id == @book.user_id %>
 						<th><%= link_to "Edit", edit_book_path(@book.id) %></th>
