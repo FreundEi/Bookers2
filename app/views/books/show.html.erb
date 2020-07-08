@@ -1,25 +1,32 @@
 <div class="container">
 	<div class="row">
 		<%= render "books/sidebar" %>
-		<h1>Book detail</h1>
-
 		<div class="col-xs-9">
-			<table>
+
+			<h1>Book detail</h1>
+			<table class="table">
 				<tbody>
-					<th>
-						<%= link_to user_path(@book.user_id) do %>
-			    			<%= image_tag attachment_url(@book.user, :profile_image, :fill, 50, 50, format: "jpg", fallback: "no_image.png"), size:'50x50'%>
-			    			<br><%= @book.user.name %>
+					<tr>
+						<!-- profile image -->
+						<td>
+							<%= link_to user_path(@book.user_id) do %>
+			    			<%= image_tag attachment_url(@book.user, :profile_image, :fill, 50, 50, format: "jpg", fallback: "no_image.png"), size:'50x50'%><br>
+			    			<%= @book.user.name %>
 	    				<% end %>
-    				</th>
-					<th><%= link_to @book.title, user_path(@book.user) %></th>
-					<th><%= @book.body %></th>
-					<% if current_user.id == @book.user_id %>
-						<th><%= link_to "Edit", edit_book_path(@book.id) %></th>
-					 	<th><%= link_to "Destroy", book_path, method: :delete, data: {confirm: "本当に消しますか？"} %></th>
-				 	<% end %>
-			    </tbody>
+    				</td>
+    				<!-- title -->
+						<td><%= link_to @book.title, user_path(@book.user) %></td>
+						<!-- opinion -->
+						<td><%= @book.body %></td>
+						<!-- edditing button -->
+						<% if current_user.id == @book.user_id %>
+							<td><%= link_to "Edit", edit_book_path(@book.id), class: "btn-sm btn-success" %></td>
+					 		<td><%= link_to "Destroy", book_path, class: "btn-sm btn-danger", method: :delete, data: {confirm: "本当に消しますか？"} %></td>
+				 		<% end %>
+				  </tr>
+		    </tbody>
 			</table>
+
 		</div>
-    </div>
+  </div>
 </div>

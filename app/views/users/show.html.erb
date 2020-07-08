@@ -2,8 +2,10 @@
 	<div class="row">
 		<%= render "books/sidebar" %>
 		<div class="col-xs-9">
+
 			<h2>Books</h2>
-			<table>
+
+			<table class="table table-hover table-inverse">
 				<thead>
 					<tr>
 						<th></th>
@@ -14,13 +16,13 @@
 
         <tbody>
           <% @books.each do |book| %>
-					<% if @user.id == book.user_id %>
-          	<tr>
-		        	<td><%= image_tag attachment_url(book.user, :profile_image, :fill, 50, 50, format: "jpg", fallback: "no_image.png"), size:'50x50'%></td>
-			        <td><%= link_to book.title, book_path(book.id) %></td>
-			        <td><%= book.body %></td>
-			      </tr>
-			    <% end %>
+						<% if @user.id == book.user_id %>
+	          	<tr>
+			        	<td><%= image_tag attachment_url(book.user, :profile_image, :fill, 50, 50, format: "jpg", fallback: "no_image.png"), size:'50x50'%></td>
+				        <td><%= link_to book.title, book_path(book.id) %></td>
+				        <td><%= book.body %></td>
+				      </tr>
+				    <% end %>
 			    <% end %>
         </tbody>
 
